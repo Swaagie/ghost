@@ -5,6 +5,9 @@
         "start": "node index",
         "test": "grunt validate --verbose"
     },
+    "engines": {
+        "node": ">=0.10.*"
+    },
     "dependencies": {
         "express": "3.3.4",
         "express-hbs": "0.2.2",
@@ -13,7 +16,7 @@
         "moment": "2.1.0",
         "underscore": "1.5.1",
         "showdown": "0.3.1",
-        "sqlite3": "2.1.16",
+        "sqlite3": "2.1.17",
         "bookshelf": "0.5.7",
         "knex": "0.4.11",
         "when": "2.2.1",
