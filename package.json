@@ -1,13 +1,15 @@
 {
     "name": "ghost",
     "version": "0.3.3",
+    "private": true,
     "scripts": {
         "start": "node index",
         "test": "grunt validate --verbose"
     },
     "engines": {
-        "node": ">=0.10.*"
+        "node": ">=0.10.* <0.11.4"
     },
+    "engineStrict": true,
     "dependencies": {
         "express": "3.3.4",
         "express-hbs": "0.2.2",
@@ -16,7 +18,7 @@
         "moment": "2.1.0",
         "underscore": "1.5.1",
         "showdown": "0.3.1",
-        "sqlite3": "2.1.17",
+        "sqlite3": "2.1.16",
         "bookshelf": "0.5.7",
         "knex": "0.4.11",
         "when": "2.2.1",
@@ -28,7 +30,7 @@
         "downsize": "0.0.2",
         "validator": "1.4.0",
         "rss": "0.2.0",
-        "nodemailer": "0.5.3"
+        "nodemailer": "0.5.2"
     },
     "optionalDependencies": {
         "mysql": "2.0.0-alpha9"
