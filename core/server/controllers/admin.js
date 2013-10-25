@@ -12,6 +12,7 @@ var Ghost         = require('../../ghost'),
 
     ghost         = new Ghost(),
     dataProvider  = ghost.dataProvider,
+    paths         = ghost.paths(),
     adminNavbar,
     adminControllers,
     loginSecurity = [];
@@ -81,9 +82,9 @@ adminControllers = {
             type = req.files.uploadimage.type,
             basename = path.basename(req.files.uploadimage.name, ext).replace(/[\W]/gi, '_');
 
-        function renameFile(target_path) {
+        function renameFile(uri, target_path) {
             // adds directories recursively
-            fs.mkdirs(dir, function (err) {
+            fs.mkdirs(path.dirname(target_path), function (err) {
                 if (err) {
                     return errors.logError(err);
                 }
@@ -110,7 +111,7 @@ adminControllers = {
         if ((type === 'image/jpeg' || type === 'image/png' || type === 'image/gif')
                 && (ext === '.jpg' || ext === '.jpeg' || ext === '.png' || ext === '.gif')) {
             getUniqueFileName(dir, basename, ext, null, function (filename) {
-                renameFile(filename);
+                renameFile(filename, path.join(paths.appRoot, filename));
             });
         } else {
             res.send(403, 'Invalid file type');
