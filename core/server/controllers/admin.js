@@ -100,7 +100,7 @@ adminControllers = {
                         }
 
                         // the src for the image must be in URI format, not a file system path, which in Windows uses \
-                        var src = path.join('/', target_path).replace(new RegExp('\\' + path.sep, 'g'), '/');
+                        var src = path.join('/', uri).replace(new RegExp('\\' + path.sep, 'g'), '/');
                         return res.send(src);
                     });
                 });
